@@ -1,13 +1,12 @@
 //
-//  ViewController.swift
+//  CurrencyController2.swift
 //  CryptoTracker
 //
-//  Created by Konstantin Loginov on 03/10/2021.
+//  Created by Konstantin Loginov on 08/10/2021.
 //
 
 import UIKit
 import Charts
-import Alamofire
 
 class CurrencyController: UIViewController {
     @IBOutlet weak var tickerSegment: UISegmentedControl!
@@ -39,6 +38,14 @@ class CurrencyController: UIViewController {
         setupDateRangeSegment()
         setupTickerSegment()
         setupChart()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "macpro.gen1"), style: .plain, target: self, action: #selector(openSettings))
+    }
+    
+    @objc func openSettings() {
+        
+        navigationController?.pushViewController(SettingsController(), animated: true)
+        
     }
     
     private func setupChart() {
